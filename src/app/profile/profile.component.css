@@ -1,0 +1,10 @@
+span.badge {
+	color:white;
+	margin-right: 8px;
+	margin-left: 0px;
+	float: left;
+}
+
+.card-image {
+	width: 280px;
+}

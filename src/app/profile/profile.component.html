@@ -1,0 +1,73 @@
+<div class="container">
+    <div class="row">
+		<div class="input-field col s12">
+		 <i class="material-icons prefix">account_circle</i>
+	      <input id="username" type="text" class="validate" name="username" [(ngModel)]="username" (keyup)="searchUser()">
+	      <label for="username">Github Username</label>
+	    </div>
+	</div>
+
+	<div *ngIf="user">
+	   <div class="col s12 m7">
+	    <h2 class="header">{{user.name}}</h2>
+	    <div class="card horizontal">
+	      <div class="card-image">
+	        <img src="{{user.avatar_url}}">
+	      </div>
+	      <div class="card-stacked">
+	        <div class="card-content">
+		        <div class="stats">
+		            <span class="badge blue">{{user.public_repos}} Public Repos</span>
+				    <span class="badge blue">{{user.public_gists}} Public Gists</span>
+				    <span class="badge blue">{{user.followers}} Followers</span>
+					<span class="badge blue">{{user.following}} Following</span>
+				</div>
+				<br>
+				<div class="info-list">
+					<ul class="list-group">
+						<li class="list-group-item">
+							<strong>Username: </strong> {{user.login}}
+						</li>
+						<li class="list-group-item">
+							<strong>Location: </strong> {{user.location}}
+						</li>
+						<li class="list-group-item">
+							<strong>Email: </strong> {{user.email}}
+						</li>
+						<li class="list-group-item">
+							<strong>Blog: </strong> {{user.blog}}
+						</li>
+						<li class="list-group-item">
+							<strong>Bio: </strong> {{user.bio}}
+						</li>
+					</ul>
+				</div>
+
+	        </div>
+	        <div class="card-action">
+	          <a href="{{user.html_url}}">View Profile</a>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+	    <div class="col s12 m7">
+		  	<div class="heading">
+		  		<h3>User Repos</h3>
+		  	</div>
+			<div class="repos-list">
+				<ul class="collection" *ngFor="let repo of repos">
+				    <li class="collection-item" >
+				      <h5 class="title"><a href="{{repo.html_url}}" target="_blank">{{repo.name}}</a></h5>
+				      <p>{{repo.description}}</p>
+
+				      <div class="stats">
+				      	<span class="badge blue-grey darken-4">{{repo.watchers}} Watchers</span>
+					    <span class="badge blue">{{repo.forks}} Forks</span>
+				      </div>
+				    </li>
+				  </ul>
+			</div>
+			
+	    </div>
+	</div>
+</div>
